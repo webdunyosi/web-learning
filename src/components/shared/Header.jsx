@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Search, Coins, Bell } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = ({ setIsSidebarOpen }) => {
   return (
@@ -44,10 +45,13 @@ const Header = ({ setIsSidebarOpen }) => {
         </div>
 
         {/* Bildirishnomalar */}
-        <button className="relative p-2.5 text-gray-400 hover:text-white hover:bg-white/[0.05] border border-transparent hover:border-white/10 transition-all rounded-xl shadow-inner">
+        <Link 
+          to="/student/notifications"
+          className="relative p-2.5 text-gray-400 hover:text-white hover:bg-white/[0.05] border border-transparent hover:border-white/10 transition-all rounded-xl shadow-inner"
+        >
           <Bell className="w-5 h-5 drop-shadow-sm" />
           <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)] animate-pulse"></span>
-        </button>
+        </Link>
 
         {/* Profil qismi */}
         <div className="flex items-center gap-3 pl-4 sm:pl-6 border-l border-white/10 cursor-pointer group">

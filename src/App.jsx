@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// 1. Auth importlari (Yangi)
+// 1. Auth importlari
 import AuthLayout from './layouts/AuthLayout';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -11,7 +11,11 @@ import StudentLayout from './layouts/StudentLayout';
 import StudentDashboard from './pages/student/Dashboard';
 import StudentCourses from './pages/student/Courses';
 import StudentLeaderboard from './pages/student/Leaderboard';
+import StudentAttendance from './pages/student/Attendance';
+import StudentPayments from './pages/student/Payments';
 import StudentShop from './pages/student/Shop';
+import StudentProfile from './pages/student/Profile';
+import StudentNotifications from './pages/student/Notifications';
 
 // 3. Teacher importlari (Vaqtinchalik)
 import TeacherLayout from './layouts/TeacherLayout';
@@ -44,7 +48,11 @@ const App = () => {
           <Route path="dashboard" element={<StudentDashboard />} />
           <Route path="courses" element={<StudentCourses />} />
           <Route path="leaderboard" element={<StudentLeaderboard />} />
+          <Route path="attendance" element={<StudentAttendance />} /> 
+          <Route path="payments" element={<StudentPayments />} />     {/* <--- To'lovlar ulandi */}
           <Route path="shop" element={<StudentShop />} />
+          <Route path="profile" element={<StudentProfile />} />     
+          <Route path="notifications" element={<StudentNotifications />} />  
         </Route>
 
         {/* ==========================================
