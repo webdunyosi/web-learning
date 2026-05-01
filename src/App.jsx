@@ -64,6 +64,9 @@ const App = () => {
           <Route path="groups" element={<TeacherGroups />} />
           <Route path="attendance" element={<TeacherAttendance />} />
           <Route path="grades" element={<TeacherGrades />} />
+          {/* Keyinchalik qo'shiladigan sahifalar uchun placeholder */}
+          <Route path="messages" element={<div className="text-white">Xabarlar sahifasi</div>} />
+          <Route path="settings" element={<div className="text-white">Sozlamalar sahifasi</div>} />
         </Route>
 
         {/* Agar topilmagan manzilga kirsa */}
