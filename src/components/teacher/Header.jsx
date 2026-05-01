@@ -76,23 +76,38 @@ const TeacherHeader = ({ setIsSidebarOpen }) => {
             </div>
           </button>
 
+          {/* DROPDOWN MENU */}
           {isProfileOpen && (
-            <div className="absolute right-0 mt-3 w-60 bg-[#15181e] backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl py-2 z-[100]">
-              <div className="px-5 py-3 border-b border-white/5 mb-2">
-                <p className="text-sm font-bold text-white uppercase tracking-wide">Sardor Tursunov</p>
-                <p className="text-xs text-gray-500 mt-0.5">mentor@weblearning.uz</p>
-              </div>
-
-              <Link to="/teacher/profile" className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 mx-2 rounded-xl">
-                <User className="w-4 h-4 text-indigo-400" />
-                <span className="text-sm font-semibold">Profilim</span>
+            <div className="absolute right-0 mt-3 w-72 bg-[#1a1d24]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] py-3 overflow-hidden animate-in fade-in zoom-in duration-200 origin-top-right z-[100]">
+              
+              {/* Profilga o'tish */}
+              <Link 
+                to="/teacher/profile" 
+                onClick={() => setIsProfileOpen(false)}
+                className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all mx-2 rounded-xl group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors border border-indigo-500/10">
+                  <User className="w-5 h-5 text-indigo-400" />
+                </div>
+                <span className="text-base font-semibold tracking-wide">Profilim</span>
               </Link>
 
+              {/* Ajratuvchi chiziq */}
               <div className="h-px bg-white/5 my-2 mx-4"></div>
 
-              <button className="flex items-center gap-3 px-4 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 mx-2 rounded-xl w-[calc(100%-16px)] text-left">
-                <LogOut className="w-4 h-4" />
-                <span className="text-sm font-semibold">Tizimdan chiqish</span>
+              {/* Tizimdan chiqish */}
+              <button 
+                onClick={() => {
+                  setIsProfileOpen(false);
+                  // Bu yerga chiqish logikasini qo'shishingiz mumkin
+                  console.log("Tizimdan chiqildi");
+                }}
+                className="flex items-center gap-3 px-4 py-3 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all mx-2 rounded-xl group w-[calc(100%-16px)] text-left"
+              >
+                <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors border border-red-500/10">
+                  <LogOut className="w-5 h-5" />
+                </div>
+                <span className="text-base font-semibold tracking-wide whitespace-nowrap">Tizimdan chiqish</span>
               </button>
             </div>
           )}
