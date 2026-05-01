@@ -17,23 +17,27 @@ import StudentShop from './pages/student/Shop';
 import StudentProfile from './pages/student/Profile';
 import StudentNotifications from './pages/student/Notifications';
 
-// 3. Teacher importlari (Vaqtinchalik)
+// 3. Teacher importlari
 import TeacherLayout from './layouts/TeacherLayout';
-const TeacherDashboard = () => <div className="text-2xl font-bold">O'qituvchi - Asosiy panel</div>;
-const TeacherGroups = () => <div className="text-2xl font-bold">O'qituvchi - Guruhlarim</div>;
-const TeacherAttendance = () => <div className="text-2xl font-bold">O'qituvchi - Davomat (Yo'qlama)</div>;
-const TeacherGrades = () => <div className="text-2xl font-bold">O'qituvchi - Baholash</div>;
+import TeacherDashboard from './pages/teacher/Dashboard'; // Bu faylni yaratdik
+import TeacherGroups from './pages/teacher/Groups';       // Keyingi bosqichda yaratasiz
+import TeacherAttendance from './pages/teacher/Attendance'; 
+import TeacherGrades from './pages/teacher/Grades';
+import TeacherMessages from './pages/teacher/Messages';
+import TeacherSettings from './pages/teacher/Settings';
+import TeacherProfile from './pages/teacher/Profile';
+import TeacherNotifications from './pages/teacher/Notifications';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         
-        {/* Endi birinchi kirganda Login sahifasiga yo'naltiramiz */}
+        {/* Asosiy kirish */}
         <Route path="/" element={<Navigate to="/login" />} />
 
         {/* ==========================================
-            AUTH YO'LLARI (Login / Register)
+            AUTH YO'LLARI
             ========================================== */}
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
@@ -49,27 +53,33 @@ const App = () => {
           <Route path="courses" element={<StudentCourses />} />
           <Route path="leaderboard" element={<StudentLeaderboard />} />
           <Route path="attendance" element={<StudentAttendance />} /> 
-          <Route path="payments" element={<StudentPayments />} />     {/* <--- To'lovlar ulandi */}
+          <Route path="payments" element={<StudentPayments />} />
           <Route path="shop" element={<StudentShop />} />
-          <Route path="profile" element={<StudentProfile />} />     
-          <Route path="notifications" element={<StudentNotifications />} />  
+          <Route path="profile" element={<StudentProfile />} /> 
+          <Route path="notifications" element={<StudentNotifications />} /> 
         </Route>
 
         {/* ==========================================
             TEACHER YO'LLARI
             ========================================== */}
         <Route path="/teacher" element={<TeacherLayout />}>
+          {/* Default yo'naltirish */}
           <Route index element={<Navigate to="/teacher/dashboard" />} />
+          
+          {/* Sidebardagi barcha sahifalar ulandi */}
           <Route path="dashboard" element={<TeacherDashboard />} />
           <Route path="groups" element={<TeacherGroups />} />
           <Route path="attendance" element={<TeacherAttendance />} />
           <Route path="grades" element={<TeacherGrades />} />
-          {/* Keyinchalik qo'shiladigan sahifalar uchun placeholder */}
-          <Route path="messages" element={<div className="text-white">Xabarlar sahifasi</div>} />
-          <Route path="settings" element={<div className="text-white">Sozlamalar sahifasi</div>} />
+          <Route path="messages" element={<TeacherMessages />} />
+          <Route path="settings" element={<TeacherSettings />} />
+          
+          {/* Headerdagi profil va bildirishnomalar uchun */}
+          <Route path="profile" element={<TeacherProfile />} />
+          <Route path="notifications" element={<TeacherNotifications />} />
         </Route>
 
-        {/* Agar topilmagan manzilga kirsa */}
+        {/* 404 - Sahifa topilmadi */}
         <Route path="*" element={<div className="p-10 text-center text-red-500 font-bold text-2xl">404 - Sahifa topilmadi</div>} />
 
       </Routes>

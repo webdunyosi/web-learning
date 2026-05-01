@@ -3,21 +3,21 @@
     "id": 1,
     "name": "Ali Valiyev",
     "email": "student@mail.com",
-    "password": "password123",
+    "password": "password123*",
     "role": "student"
   },
   {
     "id": 2,
     "name": "Sardor Aka",
     "email": "teacher@mail.com",
-    "password": "password123",
+    "password": "password123*",
     "role": "teacher"
   },
   {
     "id": 3,
     "name": "Asosiy Admin",
     "email": "admin@mail.com",
-    "password": "admin123",
+    "password": "admin123*  ",
     "role": "admin"
   }
 ]
