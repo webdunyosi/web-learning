@@ -103,8 +103,39 @@ const Login = () => {
 
       </form>
 
+      {/* Demo ma'lumotlari */}
+      <div className="mt-6 pt-6 border-t border-white/5 relative z-10">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 text-center">Demo hisoblar (tanlash uchun bosing):</p>
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            type="button"
+            onClick={() => { setEmail('student@mail.com'); setPassword('password123*'); }}
+            className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-green-500/10 hover:border-green-500/30 transition-all duration-200 group text-center cursor-pointer"
+          >
+            <span className="text-xs font-bold text-white group-hover:text-green-400 transition-colors">Talaba</span>
+            <span className="text-[10px] text-gray-500 group-hover:text-green-500/70 transition-colors mt-0.5 truncate w-full">student@mail.com</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => { setEmail('teacher@mail.com'); setPassword('password123*'); }}
+            className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-green-500/10 hover:border-green-500/30 transition-all duration-200 group text-center cursor-pointer"
+          >
+            <span className="text-xs font-bold text-white group-hover:text-green-400 transition-colors">O'qituvchi</span>
+            <span className="text-[10px] text-gray-500 group-hover:text-green-500/70 transition-colors mt-0.5 truncate w-full">teacher@mail.com</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => { setEmail('admin@mail.com'); setPassword('admin123*'); }}
+            className="flex flex-col items-center justify-center p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-green-500/10 hover:border-green-500/30 transition-all duration-200 group text-center cursor-pointer"
+          >
+            <span className="text-xs font-bold text-white group-hover:text-green-400 transition-colors">Admin</span>
+            <span className="text-[10px] text-gray-500 group-hover:text-green-500/70 transition-colors mt-0.5 truncate w-full">admin@mail.com</span>
+          </button>
+        </div>
+      </div>
+
       {/* Registerga o'tish */}
-      <div className="mt-8 text-center relative z-10">
+      <div className="mt-6 text-center relative z-10">
         <p className="text-gray-400 text-sm">
           Hisobingiz yo'qmi?{' '}
           <Link to="/register" className="text-green-400 font-semibold hover:text-green-300 hover:underline transition-colors">
